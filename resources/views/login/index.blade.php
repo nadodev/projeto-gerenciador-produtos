@@ -6,7 +6,7 @@
             @csrf()
             <div class="flex flex-col w-full mb-4">
                 <label for="#">Usuario</label>
-                <input type="text" class="py-1 rounded-md pl-2" name="user">
+                <input type="text" class="py-1 rounded-md pl-2" name="email">
             </div>
             <div class="flex flex-col w-full mb-4">
                 <label for="#">Senha</label>

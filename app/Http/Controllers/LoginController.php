@@ -10,4 +10,9 @@ class LoginController extends Controller
     {
         return view('login.index');
     }
+
+    public function authenticate(Request $request)
+    {
+        dd($request->all());
+    }
 }

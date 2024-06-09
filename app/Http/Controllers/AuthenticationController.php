@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use Auth;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class AuthenticationController extends Controller
 {
     public function login()
     {
@@ -17,14 +19,24 @@ class LoginController extends Controller
 
         $credentials = $request->validated();
 
-
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('dashboard');
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'E-mail e/ou senha inválidos',
         ])->onlyInput('email');
     }
+
+    public function logout(Request $request): RedirectResponse
+{
+    Auth::logout();
+
+    $request->session()->invalidate();
+
+    $request->session()->regenerateToken();
+
+    return redirect('/');
+}
 }

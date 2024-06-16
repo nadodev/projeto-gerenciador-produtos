@@ -48,3 +48,15 @@ php artisan migrate:fresh --seed
 obs: se você ainda não estiver com a database criado, apos rodar o comando acima , ele vai pedir se quer criar o banco de dados, você só precisa digitar "[ y ]"
 
 
+## Rodar o projeto
+
+```php
+php artisan serve
+```
+
+em outro terminal
+
+```php
+ npm run dev
+```
+

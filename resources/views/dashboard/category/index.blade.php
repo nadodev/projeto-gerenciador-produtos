@@ -31,7 +31,7 @@
                             <td class="px-4 py-2 border-b">{{ $category->id }}</td>
                             <td class="w-full px-4 py-2 border-b">{{ $category->name }}</td>
                             <td class="flex items-center justify-center px-4 py-2 space-x-2 border-b">
-                                <a href="{{ route('category.edit', $category) }}" class="px-2 py-1 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-700">Editar</a>
+                                <a href="{{ route('admin.category.edit', $category) }}" class="px-2 py-1 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-700">Editar</a>
                                 <button id="showModalBtn-{{ $category->id }}" type="button" class="flex gap-2 px-2 py-1 font-bold text-white bg-red-500 rounded hover:bg-red-700" data-toggle="modal" data-target="#confirmDeleteModal{{ $category->id }}">
                                     Excluir
                                 </button>
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="flex gap-2 px-4 py-4 bg-gray-100 modal-footer">
                                         <button type="button" class="px-4 py-1 text-white rounded-lg bg-zinc-400" id="cancelBtn{{ $category->id }}">Cancelar</button>
-                                        <form action="{{ route('category.destroy', $category->id) }}" method="POST">
+                                        <form action="{{ route('admin.category.destroy', $category->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="px-4 py-1 text-white bg-red-500 rounded-lg">Excluir</button>

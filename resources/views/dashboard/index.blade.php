@@ -5,7 +5,7 @@
 
         <div class="flex gap-4">
             <div class="p-4 text-center rounded-lg bg-sky-500">
-                <span class="block mb-2 text-5xl font-black text-white">{{ $totalProdutos }}</span>
+                <span class="block mb-2 text-5xl font-black text-white">5</span>
                 <p class="font-bold text-white text-1xl">PRODUTOS CADASTRADO</p>
             </div>
             <div class="p-4 text-center rounded-lg bg-emerald-500">

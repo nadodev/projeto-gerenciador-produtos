@@ -10,7 +10,6 @@ class DashboardController extends Controller
     public function index()
     {
         $totalCategorias = Category::count();
-        $totalProdutos = Product::count();
-        return view('dashboard.index', compact('totalCategorias', 'totalProdutos'));
+        return view('dashboard.index', compact('totalCategorias'));
     }
 }

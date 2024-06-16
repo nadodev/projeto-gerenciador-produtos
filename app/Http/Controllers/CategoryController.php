@@ -4,18 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategorytRequest;
 use App\Models\Category;
-use App\Repositories\Categories\CategoryRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class CategoryController extends Controller
 {
-    public function __construct(protected CategoryRepository $categoryRepository)
-    {}
 
     public function index()
     {
-        $categories = $this->categoryRepository->getAll()->orderBy('id', 'desc')->paginate(10);
+        $categories = Category::orderBy('id', 'desc')->paginate(10);
         return view('dashboard.category.index', compact('categories'));
     }
 
@@ -28,11 +25,11 @@ class CategoryController extends Controller
     {
         try {
             $validatedData = $request->validated();
-            $this->categoryRepository->create($validatedData);
-            return redirect()->route('category.index')->with('success', 'Categoria cadastrada com sucesso!');
+            Category::create($validatedData);
+            return redirect()->route('admin.category.index')->with('success', 'Categoria cadastrada com sucesso!');
         } catch (\Exception $e) {
             Log::error('Error storing category: ' . $e->getMessage());
-            return redirect()->route('category.index')->with('error', 'Ocorreu um erro ao criar a categoria.');
+            return redirect()->route('admin.category.index')->with('error', 'Ocorreu um erro ao criar a categoria.');
         }
     }
 
